@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://imageapp-e4448-default-rtdb.firebaseio.com/",
+      "secure": false
+    }
+  }

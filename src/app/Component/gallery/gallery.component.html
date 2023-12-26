@@ -1,0 +1,40 @@
+<p>gallery works! </p>
+<div (scroll)="onScroll()">
+  <div >
+    
+    <div>
+      <div>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by image name" (input)="filterImages()">
+      </div>
+      <div *ngIf="IsSearchSelected == false">
+      <mat-grid-list cols="3" rowHeight="2:2" >
+        <mat-grid-tile *ngFor="let data of datalist">
+          <mat-card class="card">
+            
+          <mat-card-content>
+            <mat-card-header>{{data.title}}</mat-card-header>
+            <img mat-card-image [src]="data.imgsrc"
+              class="card-img">
+              <mat-card-subtitle>{{data.tag}}</mat-card-subtitle>
+            </mat-card-content>
+            
+            </mat-card></mat-grid-tile>
+      </mat-grid-list></div>
+      <div *ngIf="IsSearchSelected == true">
+        <mat-grid-list cols="3" rowHeight="2:2" >
+          <mat-grid-tile *ngFor="let data of filteredImages">
+            <mat-card class="card">
+              
+            <mat-card-content>
+              <mat-card-header>{{data.title}}</mat-card-header>
+              <img mat-card-image [src]="data.imgsrc"
+                class="card-img">
+                <mat-card-subtitle>{{data.tag}}</mat-card-subtitle>
+              </mat-card-content>
+              
+              </mat-card></mat-grid-tile>
+        </mat-grid-list></div></div>
+  </div>
+
+
+</div>

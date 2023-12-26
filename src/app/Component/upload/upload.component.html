@@ -1,0 +1,28 @@
+<div class="container">
+
+  <form class="example-form" #Upload="ngForm" (submit)="onUpload(Upload.value)">
+  <mat-card *ngIf="imgselected == true">
+    <mat-card-content>
+    <img mat-card-image loading="lazy" [src]="imgsrc"><br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Ex. morning" name="title" [(ngModel)]="tagtitle.title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>tag</mat-label>
+      <input matInput placeholder="Ex. tea" name="tag" [(ngModel)]="tagtitle.tag">
+    </mat-form-field>
+    <br>
+  </mat-card-content>
+  </mat-card>
+  <input type="file" size="" #imginput (change)="onChange($event)" accept="image/*" /><br><br>
+  <button mat-raised-button class="example-button-row" type="submit" [disabled]="imgselected == false && fileSizeError == false">Upload</button>
+
+  </form>
+  <div *ngIf="ProgressBar !== null" >
+    <progress max="100" [value]="ProgressBar"></progress>
+    {{ ProgressBar }}%
+  </div>
+</div>
